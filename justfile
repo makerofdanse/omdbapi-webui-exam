@@ -30,4 +30,6 @@ clean-dist:
     fi
 
 deploy: clean-dist build
-    npx gh-pages -d dist
+    @echo "just: deploying to remote gh-pages branch... 🥰"
+    @npx gh-pages -d dist
+    @echo "just: project deployed ✅"
