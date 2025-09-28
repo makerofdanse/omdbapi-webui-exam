@@ -12,7 +12,7 @@ createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <QueryClientProvider client={queryClient}>
             <SearchProvider>
-                <BrowserRouter>
+                <BrowserRouter basename="/omdbapi-webui-exam">
                     <App />
                 </BrowserRouter>
             </SearchProvider>
