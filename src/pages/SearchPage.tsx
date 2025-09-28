@@ -55,7 +55,11 @@ export default function SearchPage() {
                         <div key={movie.imdbID} className={styles.movieCard}>
                             <Link to={`/movie/${movie.imdbID}`} className={styles.movieLink}>
                                 <img
-                                    src={movie.Poster !== "N/A" ? movie.Poster : "/fallback.svg"}
+                                    src={
+                                        movie.Poster !== "N/A"
+                                            ? movie.Poster
+                                            : `${import.meta.env.BASE_URL}fallback.svg`
+                                    }
                                     alt={`${movie.Title} poster`}
                                     className={styles.moviePoster}
                                 />

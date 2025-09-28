@@ -20,7 +20,7 @@ export default function MoviePage() {
             </Link>
             <div className={styles.heroSection}>
                 <img
-                    src={data!.Poster !== "N/A" ? data!.Poster : "/fallback.svg"}
+                    src={data!.Poster !== "N/A" ? data!.Poster : `${import.meta.env.BASE_URL}fallback.svg`}
                     alt={`${data!.Title} poster`}
                     className={styles.heroPoster}
                 />
