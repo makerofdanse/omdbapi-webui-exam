@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { getMovieDetails, type MovieDetails } from "../api/omdbApi";
+import { Link } from "react-router-dom";
 import InfoItem from "../components/InfoItem";
 import styles from "./MoviePage.module.css";
 
@@ -14,8 +15,15 @@ export default function MoviePage() {
     if (error) return <p className={styles.errorMessage}>something broke: {error.message}</p>;
     return (
         <div className={styles.moviePage}>
+            <Link to="/" className={styles.backButton}>
+                ← back to search
+            </Link>
             <div className={styles.heroSection}>
-                <img src={data!.Poster} alt={`${data!.Title} poster`} className={styles.heroPoster} />
+                <img
+                    src={data!.Poster !== "N/A" ? data!.Poster : "/fallback.svg"}
+                    alt={`${data!.Title} poster`}
+                    className={styles.heroPoster}
+                />
                 <div className={styles.heroInfo}>
                     <h1 className={styles.movieTitle}>{data!.Title}</h1>
                     <p className={styles.movieTagline}>

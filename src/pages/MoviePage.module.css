@@ -98,3 +98,24 @@
     color: #ff6b6b;
     text-align: center;
 }
+.backButton {
+    position: sticky;
+    top: 10px;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #c9d1d9;
+    background: rgba(40, 50, 60, 0.9);
+    border: 1px solid #6ab0c2;
+    border-radius: 8px;
+    text-decoration: none;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.backButton:hover {
+    background: rgba(60, 70, 80, 0.9);
+    border-color: #8bd3e6;
+}
