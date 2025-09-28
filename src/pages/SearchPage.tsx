@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { searchMovies } from "../api/omdbApi";
 import type { SearchResponse } from "../api/omdbApi";
+import "./SearchPage.module.css";
 
 export default function SearchPage() {
     const [searchQuery, setSearchQuery] = useState<string>("");
@@ -14,27 +15,28 @@ export default function SearchPage() {
 
     return (
         <div className="search-page">
-            <h1>Search Movies</h1>
+            <h1 className="search-title">search movies</h1>
             <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Enter movie title..."
+                placeholder="enter movie title..."
                 className="search-input"
             />
-            {isLoading && <p>loading...</p>}
-            {error && <p>something broke: {error.message}</p>}
+            {isLoading && <p className="loading-message">loading...</p>}
+            {error && <p className="error-message">something broke: {error.message}</p>}
             {data?.Search && (
-                <ul className="movie-list">
+                <div className="movie-grid">
                     {data.Search.map((movie) => (
-                        <li key={movie.imdbID}>
-                            <Link to={`/movie/${movie.imdbID}`}>
-                                {movie.Title} ({movie.Year})
+                        <div key={movie.imdbID} className="movie-card">
+                            <Link to={`/movie/${movie.imdbID}`} className="movie-link">
+                                <img src={movie.Poster} alt={`${movie.Title} poster`} className="movie-poster" />
+                                <h2 className="movie-title">{movie.Title}</h2>
+                                <p className="movie-year">({movie.Year})</p>
                             </Link>
-                            {/* <img src={movie.Poster} /> */}
-                        </li>
+                        </div>
                     ))}
-                </ul>
+                </div>
             )}
         </div>
     );
