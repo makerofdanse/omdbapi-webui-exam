@@ -1,12 +1,33 @@
 all:
     @echo "Nothing to do for all."
 
-dev:
+restore:
+    #!/usr/bin/env bash
+    if [[ ! -d ./node_modules ]]; then
+        echo "just: restoring project... 🤩"
+        npm install
+        echo "just: project restored ✅"
+    fi
+
+dev: restore
     npm run dev
 
 dev-live: build
     npx live-server dist --entry-file=index.html
 
-build:
-    npm run build
+build: restore
+    @echo "just: starting build... 😴"
+    @npm run build
+    @echo "just: build finished ✅"
 
+clean-dist:
+    #!/usr/bin/env bash
+    if [[ -d ./dist ]]; then
+        rm -r ./dist
+        echo "just: dist cleaned ✅"
+    else
+        echo "just: no dist to clean 😉"
+    fi
+
+deploy: clean-dist build
+    npx gh-pages -d dist
