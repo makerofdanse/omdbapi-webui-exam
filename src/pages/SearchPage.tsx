@@ -1,16 +1,28 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { searchMovies } from "../api/omdbApi";
 import type { SearchResponse } from "../api/omdbApi";
 import styles from "./SearchPage.module.css";
 
+const DEBOUNCE_DELAY_MS = 800;
+
+function useDebounce<T>(value: T, delay: number): T {
+    const [debouncedValue, setDebouncedValue] = useState<T>(value);
+    useEffect(() => {
+        const timer = setTimeout(() => setDebouncedValue(value), delay);
+        return () => clearTimeout(timer);
+    }, [value, delay]);
+    return debouncedValue;
+}
+
 export default function SearchPage() {
     const [searchQuery, setSearchQuery] = useState<string>("");
+    const debouncedQuery = useDebounce(searchQuery, DEBOUNCE_DELAY_MS);
     const { data, isLoading, error } = useQuery<SearchResponse>({
-        queryKey: ["movies", searchQuery],
-        queryFn: () => searchMovies(searchQuery),
-        enabled: !!searchQuery,
+        queryKey: ["movies", debouncedQuery],
+        queryFn: () => searchMovies(debouncedQuery),
+        enabled: !!debouncedQuery,
     });
 
     return (
