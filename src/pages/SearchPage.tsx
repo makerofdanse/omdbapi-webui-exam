@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { searchMovies } from "../api/omdbApi";
 import type { SearchResponse } from "../api/omdbApi";
-import "./SearchPage.module.css";
+import styles from "./SearchPage.module.css";
 
 export default function SearchPage() {
     const [searchQuery, setSearchQuery] = useState<string>("");
@@ -14,25 +14,25 @@ export default function SearchPage() {
     });
 
     return (
-        <div className="search-page">
-            <h1 className="search-title">search movies</h1>
+        <div className={styles.searchPage}>
+            <h1 className={styles.searchTitle}>search movies</h1>
             <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="enter movie title..."
-                className="search-input"
+                className={styles.searchInput}
             />
-            {isLoading && <p className="loading-message">loading...</p>}
-            {error && <p className="error-message">something broke: {error.message}</p>}
+            {isLoading && <p className={styles.loadingMessage}>loading...</p>}
+            {error && <p className={styles.errorMessage}>something broke: {error.message}</p>}
             {data?.Search && (
-                <div className="movie-grid">
+                <div className={styles.movieGrid}>
                     {data.Search.map((movie) => (
-                        <div key={movie.imdbID} className="movie-card">
-                            <Link to={`/movie/${movie.imdbID}`} className="movie-link">
-                                <img src={movie.Poster} alt={`${movie.Title} poster`} className="movie-poster" />
-                                <h2 className="movie-title">{movie.Title}</h2>
-                                <p className="movie-year">({movie.Year})</p>
+                        <div key={movie.imdbID} className={styles.movieCard}>
+                            <Link to={`/movie/${movie.imdbID}`} className={styles.movieLink}>
+                                <img src={movie.Poster} alt={`${movie.Title} poster`} className={styles.moviePoster} />
+                                <h2 className={styles.movieTitle}>{movie.Title}</h2>
+                                <p className={styles.movieYear}>({movie.Year})</p>
                             </Link>
                         </div>
                     ))}

@@ -1,4 +1,5 @@
 import type React from "react";
+import styles from "./InfoItem.module.css";
 
 interface InfoItemProps {
     label: string;
@@ -7,9 +8,9 @@ interface InfoItemProps {
 
 const InfoItem: React.FC<InfoItemProps> = ({ label, value }) => {
     return (
-        <div className="info-item">
-            <strong className="info-label">{label}</strong>
-            <span className="info-value">{value}</span>
+        <div className={styles.infoItem}>
+            <strong className={styles.infoLabel}>{label}</strong>
+            <span className={styles.infoValue}>{value}</span>
         </div>
     );
 };

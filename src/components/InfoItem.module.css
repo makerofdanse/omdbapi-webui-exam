@@ -1,0 +1,27 @@
+.infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.5rem;
+}
+
+.infoLabel {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6ab0c2;
+    text-transform: capitalize;
+}
+
+.infoValue {
+    font-size: 1rem;
+    color: #c9d1d9;
+}
+
+.infoValue a {
+    color: #8bd3e6;
+    transition: color 0.3s ease;
+}
+
+.infoValue a:hover {
+    color: #a3bffa;
+}

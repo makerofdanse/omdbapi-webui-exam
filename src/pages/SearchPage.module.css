@@ -1,0 +1,96 @@
+.searchPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.searchTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #a3bffa;
+    text-shadow: 0 0 10px rgba(163, 191, 250, 0.5);
+    letter-spacing: 1px;
+}
+
+.searchInput {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    background: rgba(40, 50, 60, 0.9);
+    border: 1px solid #4a6b7c;
+    border-radius: 8px;
+    color: #c9d1d9;
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: #6ab0c2;
+    box-shadow: 0 0 8px rgba(106, 176, 194, 0.5);
+}
+
+.loadingMessage,
+.errorMessage {
+    font-size: 1.2rem;
+    color: #ff6b6b;
+    text-align: center;
+}
+
+.movieGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.movieCard {
+    background: rgba(30, 40, 50, 0.95);
+    border-radius: 10px;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.movieCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+}
+
+.movieLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    text-align: center;
+}
+
+.moviePoster {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    filter: saturate(0.8);
+    transition: filter 0.3s ease;
+}
+
+.movieCard:hover .movie-poster {
+    filter: saturate(1);
+}
+
+.movieTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #d9e6f2;
+    margin: 0.5rem 0 0.25rem;
+}
+
+.movieYear {
+    font-size: 0.9rem;
+    color: #8a9ba8;
+}

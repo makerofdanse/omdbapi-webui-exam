@@ -1,0 +1,100 @@
+.moviePage {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.heroSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    background: linear-gradient(180deg, rgba(30, 40, 50, 0.9) 0%, rgba(20, 30, 35, 0.9) 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.heroPoster {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 10px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.7));
+}
+
+.heroInfo {
+    text-align: center;
+}
+
+.movieTitle {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #a3bffa;
+    text-shadow: 0 0 8px rgba(163, 191, 250, 0.4);
+}
+
+.movieTagline {
+    font-size: 1rem;
+    color: #8a9ba8;
+    font-style: italic;
+}
+
+.movieGenre {
+    font-size: 1.1rem;
+    color: #6ab0c2;
+}
+
+.detailsSection,
+.ratingsSection {
+    background: rgba(30, 40, 50, 0.95);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.sectionTitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #a3bffa;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 6px rgba(163, 191, 250, 0.3);
+}
+
+.moviePlot {
+    font-size: 1.1rem;
+    color: #c9d1d9;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.ratingsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.ratingItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ratingLabel {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #6ab0c2;
+    text-transform: capitalize;
+}
+
+.ratingValue {
+    font-size: 1.1rem;
+    color: #d9e6f2;
+}
+
+.loadingMessage,
+.errorMessage {
+    font-size: 1.2rem;
+    color: #ff6b6b;
+    text-align: center;
+}
