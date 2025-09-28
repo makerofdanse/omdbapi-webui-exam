@@ -29,6 +29,16 @@ clean-dist:
         echo "just: no dist to clean 😉"
     fi
 
+clean-deep: clean-dist
+    #!/usr/bin/env bash
+    if [[ -d ./node_modules/ ]]; then
+        rm -rf ./node_modules/
+        echo "just: node modules nuked ✅"
+    else
+        echo "just: no node modules to clean 🤯"
+    fi
+
+
 deploy: clean-dist build
     @echo "just: deploying to remote gh-pages branch... 🥰"
     @npx gh-pages -d dist
